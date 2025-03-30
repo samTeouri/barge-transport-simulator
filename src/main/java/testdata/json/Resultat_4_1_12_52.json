@@ -1,0 +1,18 @@
+[
+  {
+  "Fservices": "Fservices1",
+  "Seed": 1,
+  "nb_R": 390,
+  "nbr_F": 497,
+  "nbr_urgent": 650,
+  "nbr_non_anticipe": 653,
+  "nbr_urgent_non_anticipe": 330,
+  "taux_accept": 0.309664,
+  "nbr_accept": 384,
+  "nbr_R_rejet": 0,
+  "taux_container": 0.298428,
+  "capacite": 3250.000000,
+  "cap_resid": 1159.000000,
+  "diff_due_livraison_moyen": -182419866.671598
+  }
+]

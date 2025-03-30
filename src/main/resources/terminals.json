@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nom": "Terminal Nord"
+  },
+  {
+    "id": 2,
+    "nom": "Terminal Sud"
+  },
+  {
+    "id": 3,
+    "nom": "Terminal Est"
+  },
+  {
+    "id": 4,
+    "nom": "Terminal Ouest"
+  },
+  {
+    "id": 5,
+    "nom": "Terminal Central"
+  }
+]

@@ -1,14 +1,14 @@
 package models;
 
+import org.json.JSONObject;
+
 public class Deplacement {
     private Terminal origine;
     private Terminal destination;
     private int duree;
 
-    public Deplacement(Terminal origine, Terminal destination, int duree) {
-        this.origine = origine;
-        this.destination = destination;
-        this.duree = duree;
+    public Deplacement() {
+
     }
 
     public Terminal getOrigine() { return origine; }
@@ -25,5 +25,19 @@ public class Deplacement {
 
     public void setDuree(int duree) {
         this.duree = duree;
+    }
+
+    public void loadFromJson(JSONObject json) {
+        this.duree = json.getInt("duree");
+
+        // Charger l'origine
+        JSONObject origineJson = json.getJSONObject("origine");
+        this.origine = new Terminal();
+        this.origine.loadFromJson(origineJson);
+
+        // Charger la destination
+        JSONObject destinationJson = json.getJSONObject("destination");
+        this.destination = new Terminal();
+        this.destination.loadFromJson(destinationJson);
     }
 }

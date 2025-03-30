@@ -1,12 +1,12 @@
 package models;
 
+import org.json.JSONObject;
+
 public class Terminal {
     int id;
     String nom;
 
-    public Terminal(int id, String nom) {
-        this.id = id;
-        this.nom = nom;
+    public Terminal() {
     }
 
     public int getId() {
@@ -23,5 +23,10 @@ public class Terminal {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public void loadFromJson(JSONObject json) {
+        this.id = json.getInt("id");
+        this.nom = json.getString("nom");
     }
 }

@@ -1,5 +1,9 @@
 package models;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
@@ -13,26 +17,9 @@ public class Service {
     private List<Barge> bargesAssignees;
     private Route route;
 
-    public Service(
-        List<Barge> bargesAssignees,
-        int capacite,
-        int debut,
-        int duree,
-        int fin,
-        int id,
-        Terminal terminalDestination,
-        Terminal terminalOrigine,
-        Route route
-    ) {
-        this.bargesAssignees = bargesAssignees;
-        this.capacite = capacite;
-        this.debut = debut;
-        this.duree = duree;
-        this.fin = fin;
-        this.id = id;
-        this.terminalDestination = terminalDestination;
-        this.terminalOrigine = terminalOrigine;
-        this.route = route;
+    public Service() {
+        // Constructeur vide pour la création d'instance avant le chargement
+        this.bargesAssignees = new ArrayList<>();
     }
 
     public int getId() {
@@ -107,4 +94,38 @@ public class Service {
         this.route = route;
     }
 
+    public void loadFromJson(JSONObject json) {
+        this.id = json.getInt("id");
+        this.duree = json.getInt("duree");
+        this.debut = json.getInt("debut");
+        this.fin = json.getInt("fin");
+        this.capacite = json.getInt("capacite");
+
+        // Charger le terminal d'origine
+        JSONObject origineJson = json.getJSONObject("terminalOrigine");
+        this.terminalOrigine = new Terminal();
+        this.terminalOrigine.loadFromJson(origineJson);
+
+        // Charger le terminal de destination
+        JSONObject destinationJson = json.getJSONObject("terminalDestination");
+        this.terminalDestination = new Terminal();
+        this.terminalDestination.loadFromJson(destinationJson);
+
+        // Charger les barges assignées
+        this.bargesAssignees = new ArrayList<>();
+        JSONArray bargesJson = json.getJSONArray("bargesAssignees");
+        for (int i = 0; i < bargesJson.length(); i++) {
+            JSONObject bargeJson = bargesJson.getJSONObject(i);
+            Barge barge = new Barge();
+            barge.loadFromJson(bargeJson);
+            this.bargesAssignees.add(barge);
+        }
+
+        // Charger la route
+        if (json.has("route")) {
+            JSONObject routeJson = json.getJSONObject("route");
+            this.route = new Route();
+            this.route.loadFromJson(routeJson);
+        }
+    }
 }

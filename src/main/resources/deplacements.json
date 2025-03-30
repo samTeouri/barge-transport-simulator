@@ -1,0 +1,57 @@
+[
+  {
+    "origine": {
+      "id": 1,
+      "nom": "Terminal Nord"
+    },
+    "destination": {
+      "id": 2,
+      "nom": "Terminal Sud"
+    },
+    "duree": 120
+  },
+  {
+    "origine": {
+      "id": 2,
+      "nom": "Terminal Sud"
+    },
+    "destination": {
+      "id": 3,
+      "nom": "Terminal Est"
+    },
+    "duree": 90
+  },
+  {
+    "origine": {
+      "id": 3,
+      "nom": "Terminal Est"
+    },
+    "destination": {
+      "id": 4,
+      "nom": "Terminal Ouest"
+    },
+    "duree": 150
+  },
+  {
+    "origine": {
+      "id": 4,
+      "nom": "Terminal Ouest"
+    },
+    "destination": {
+      "id": 5,
+      "nom": "Terminal Central"
+    },
+    "duree": 100
+  },
+  {
+    "origine": {
+      "id": 5,
+      "nom": "Terminal Central"
+    },
+    "destination": {
+      "id": 1,
+      "nom": "Terminal Nord"
+    },
+    "duree": 110
+  }
+]

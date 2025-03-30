@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nom": "Chargement",
+    "duree": 45,
+    "terminal": {
+      "id": 1,
+      "nom": "Terminal Nord"
+    }
+  },
+  {
+    "id": 2,
+    "nom": "Dechargement",
+    "duree": 40,
+    "terminal": {
+      "id": 2,
+      "nom": "Terminal Sud"
+    }
+  },
+  {
+    "id": 3,
+    "nom": "Chargement",
+    "duree": 60,
+    "terminal": {
+      "id": 3,
+      "nom": "Terminal Est"
+    }
+  },
+  {
+    "id": 4,
+    "nom": "Dechargement",
+    "duree": 30,
+    "terminal": {
+      "id": 4,
+      "nom": "Terminal Ouest"
+    }
+  },
+  {
+    "id": 5,
+    "nom": "Chargement",
+    "duree": 20,
+    "terminal": {
+      "id": 5,
+      "nom": "Terminal Central"
+    }
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nom": "A",
+    "capacite": 100
+  },
+  {
+    "id": 2,
+    "nom": "B",
+    "capacite": 150
+  },
+  {
+    "id": 3,
+    "nom": "C",
+    "capacite": 120
+  },
+  {
+    "id": 4,
+    "nom": "D",
+    "capacite": 200
+  },
+  {
+    "id": 5,
+    "nom": "E",
+    "capacite": 180
+  }
+]

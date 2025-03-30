@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "duree": 305,
+    "debut": 0,
+    "fin": 305,
+    "terminalOrigine": {
+      "id": 1,
+      "nom": "Terminal Nord"
+    },
+    "terminalDestination": {
+      "id": 5,
+      "nom": "Terminal Central"
+    },
+    "capacite": 200,
+    "bargesAssignees": [
+      {
+        "id": 1,
+        "nom": "A",
+        "capacite": 100
+      },
+      {
+        "id": 2,
+        "nom": "B",
+        "capacite": 150
+      }
+    ],
+    "route": {
+      "id": 1,
+      "deplacements": [
+        {
+          "origine": {
+            "id": 1,
+            "nom": "Terminal Nord"
+          },
+          "destination": {
+            "id": 2,
+            "nom": "Terminal Sud"
+          },
+          "duree": 120
+        },
+        {
+          "origine": {
+            "id": 2,
+            "nom": "Terminal Sud"
+          },
+          "destination": {
+            "id": 5,
+            "nom": "Terminal Central"
+          },
+          "duree": 100
+        }
+      ],
+      "operations": [
+        {
+          "id": 1,
+          "nom": "Chargement",
+          "duree": 45,
+          "terminal": {
+            "id": 1,
+            "nom": "Terminal Nord"
+          }
+        },
+        {
+          "id": 2,
+          "nom": "Dechargement",
+          "duree": 40,
+          "terminal": {
+            "id": 5,
+            "nom": "Terminal Central"
+          }
+        }
+      ],
+      "duree": 305
+    }
+  },
+  {
+    "id": 2,
+    "duree": 350,
+    "debut": 100,
+    "fin": 450,
+    "terminalOrigine": {
+      "id": 3,
+      "nom": "Terminal Est"
+    },
+    "terminalDestination": {
+      "id": 1,
+      "nom": "Terminal Nord"
+    },
+    "capacite": 300,
+    "bargesAssignees": [
+      {
+        "id": 3,
+        "nom": "C",
+        "capacite": 120
+      },
+      {
+        "id": 4,
+        "nom": "D",
+        "capacite": 200
+      }
+    ],
+    "route": {
+      "id": 2,
+      "deplacements": [
+        {
+          "origine": {
+            "id": 3,
+            "nom": "Terminal Est"
+          },
+          "destination": {
+            "id": 4,
+            "nom": "Terminal Ouest"
+          },
+          "duree": 150
+        },
+        {
+          "origine": {
+            "id": 4,
+            "nom": "Terminal Ouest"
+          },
+          "destination": {
+            "id": 1,
+            "nom": "Terminal Nord"
+          },
+          "duree": 110
+        }
+      ],
+      "operations": [
+        {
+          "id": 3,
+          "nom": "Chargement",
+          "duree": 60,
+          "terminal": {
+            "id": 3,
+            "nom": "Terminal Est"
+          }
+        },
+        {
+          "id": 4,
+          "nom": "Dechargement",
+          "duree": 30,
+          "terminal": {
+            "id": 4,
+            "nom": "Terminal Ouest"
+          }
+        }
+      ],
+      "duree": 350
+    }
+  }
+]
