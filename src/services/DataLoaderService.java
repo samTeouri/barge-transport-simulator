@@ -9,6 +9,7 @@ public class DataLoaderService {
         List<Service> services = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fichier))) {
             String ligne;
+            br.readLine(); // Ignorer la première ligne
             while ((ligne = br.readLine()) != null) {
                 String[] valeurs = ligne.split("\t");
                 services.add(new Service(
@@ -25,10 +26,11 @@ public class DataLoaderService {
         List<Demande> demandes = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fichier))) {
             String ligne;
+            br.readLine(); // Ignorer la première ligne
             while ((ligne = br.readLine()) != null) {
                 String[] valeurs = ligne.split("\t");
-                Terminal origine = trouverTerminal(terminaux, Integer.parseInt(valeurs[1]));
-                Terminal destination = trouverTerminal(terminaux, Integer.parseInt(valeurs[2]));
+                Terminal origine = trouverTerminal(terminaux, Integer.parseInt(valeurs[2]));
+                Terminal destination = trouverTerminal(terminaux, Integer.parseInt(valeurs[3]));
                 demandes.add(new Demande(
                         Integer.parseInt(valeurs[0]),
                         origine,
