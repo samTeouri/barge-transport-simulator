@@ -1,11 +1,11 @@
 package models;
 
-public class Deplacement {
+public class Leg {
     private Terminal origine;
     private Terminal destination;
     private int duree;
 
-    public Deplacement(Terminal origine, Terminal destination, int duree) {
+    public Leg(Terminal origine, Terminal destination, int duree) {
         this.origine = origine;
         this.destination = destination;
         this.duree = duree;

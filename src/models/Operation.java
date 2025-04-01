@@ -1,46 +1,22 @@
 package models;
 
 public class Operation {
-    private int id;
-    private String nom;
-    private int duree;
-    private  Terminal terminal;
+    private Terminal terminal;
+    private String type;
 
-    public Operation(int id, String nom, int duree) {
-        this.id = id;
-        this.nom = nom;
-        this.duree = duree;
+    public Operation(Terminal terminal, String type) {
+        this.terminal = terminal;
+        this.type = type;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public int getDuree() {
-        return duree;
-    }
-
-    public Terminal getTerminal() {
-        return terminal;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setDuree(int duree) {
-        this.duree = duree;
-    }
+    public Terminal getTerminal() { return terminal; }
+    public String getType() { return type; }
 
     public void setTerminal(Terminal terminal) {
         this.terminal = terminal;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

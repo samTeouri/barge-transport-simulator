@@ -1,0 +1,2 @@
+Fservices	Seed	nb_R	nbr_F	nbr_urgent	nbr_non_anticipe	nbr_urgent_non_anticipe	taux_accept	nbr_accept	nbr_R_rejet	taux_container	capacite	cap_resid	diff_due_livraison_moyen
+Fservices1	1	390	497	650	653	330	0.309664	384	0	0.298428	3250.000000	1159.000000	-182419866.671598	

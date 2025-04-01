@@ -4,107 +4,40 @@ import java.util.List;
 
 public class Service {
     private int id;
-    private int duree;
-    private int debut;
-    private int fin;
-    private Terminal terminalOrigine;
-    private Terminal terminalDestination;
     private int capacite;
-    private List<Barge> bargesAssignees;
-    private Route route;
+    private List<Leg> parcours;
+    private int volumeTransporte;
 
-    public Service(
-        List<Barge> bargesAssignees,
-        int capacite,
-        int debut,
-        int duree,
-        int fin,
-        int id,
-        Terminal terminalDestination,
-        Terminal terminalOrigine,
-        Route route
-    ) {
-        this.bargesAssignees = bargesAssignees;
-        this.capacite = capacite;
-        this.debut = debut;
-        this.duree = duree;
-        this.fin = fin;
+    public Service(int id, int capacite, List<Leg> parcours) {
         this.id = id;
-        this.terminalDestination = terminalDestination;
-        this.terminalOrigine = terminalOrigine;
-        this.route = route;
+        this.capacite = capacite;
+        this.parcours = parcours;
+        this.volumeTransporte = 0;
     }
 
-    public int getId() {
-        return id;
+    public boolean peutTransporter(int volume) {
+        return volumeTransporte + volume <= capacite;
     }
+
+    public void transporter(int volume) {
+        if (peutTransporter(volume)) {
+            volumeTransporte += volume;
+        }
+    }
+
+    public int getId() { return id; }
+    public int getCapacite() { return capacite; }
+    public List<Leg> getParcours() { return parcours;}
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getDuree() {
-        return duree;
-    }
-
-    public void setDuree(int duree) {
-        this.duree = duree;
-    }
-
-    public int getDebut() {
-        return debut;
-    }
-
-    public void setDebut(int debut) {
-        this.debut = debut;
-    }
-
-    public int getFin() {
-        return fin;
-    }
-
-    public void setFin(int fin) {
-        this.fin = fin;
-    }
-
-    public Terminal getTerminalOrigine() {
-        return terminalOrigine;
-    }
-
-    public void setTerminalOrigine(Terminal terminalOrigine) {
-        this.terminalOrigine = terminalOrigine;
-    }
-
-    public Terminal getTerminalDestination() {
-        return terminalDestination;
-    }
-
-    public void setTerminalDestination(Terminal terminalDestination) {
-        this.terminalDestination = terminalDestination;
-    }
-
-    public int getCapacite() {
-        return capacite;
     }
 
     public void setCapacite(int capacite) {
         this.capacite = capacite;
     }
 
-    public List<Barge> getBargesAssignees() {
-        return bargesAssignees;
+    public void setParcours(List<Leg> parcours) {
+        this.parcours = parcours;
     }
-
-    public void setBargesAssignees(List<Barge> bargesAssignees) {
-        this.bargesAssignees = bargesAssignees;
-    }
-
-    public Route getRoute() {
-        return route;
-    }
-
-    public void setRoute(Route route) {
-        this.route = route;
-    }
-
 }
