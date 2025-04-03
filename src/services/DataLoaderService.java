@@ -11,7 +11,8 @@ public class DataLoaderService {
             String ligne;
             br.readLine(); // Ignorer la première ligne
             while ((ligne = br.readLine()) != null) {
-                String[] valeurs = ligne.split("\t");
+                String[] valeurs = ligne.split("  ");
+                System.out.println(Arrays.toString(valeurs));
                 services.add(new Service(
                         Integer.parseInt(valeurs[0]),
                         Integer.parseInt(valeurs[1]),
