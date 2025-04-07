@@ -36,13 +36,12 @@ public class DataLoaderService {
                         Integer.parseInt(valeurs[0]),
                         origine,
                         destination,
-                        Integer.parseInt(valeurs[1])
-                )
-            );
+                        Integer.parseInt(valeurs[1])));
+            }
+            return demandes;
         }
-        return demandes;
     }
-      
+
     public static List<Terminal> chargerTerminaux(String fichierTerminaux) throws IOException {
         List<Terminal> terminaux = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fichierTerminaux))) {
