@@ -6,5 +6,5 @@ id	volume	origine	destination	debut	fin
 5	777	C	D	1	1
 6	100	C	A	1	1
 7	100	B	B	0	1
-7	101	A	C	1	0
-8	322	C	C	1	0
+8	101	A	C	1	0
+9	322	C	C	1	0
