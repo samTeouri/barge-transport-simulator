@@ -16,8 +16,7 @@ public class DataLoaderService {
                 services.add(new Service(
                         Integer.parseInt(valeurs[0]),
                         Integer.parseInt(valeurs[1]),
-                        new ArrayList<>()
-                ));
+                        new ArrayList<>()));
             }
         }
         return services;
@@ -30,19 +29,20 @@ public class DataLoaderService {
             br.readLine(); // Ignorer la première ligne
             while ((ligne = br.readLine()) != null) {
                 String[] valeurs = ligne.split("\t");
-                Terminal origine = trouverTerminal(terminaux, Integer.parseInt(valeurs[2]));
-                Terminal destination = trouverTerminal(terminaux, Integer.parseInt(valeurs[3]));
+                System.out.println("Valeurs: " + Arrays.toString(valeurs));
+                Terminal origine = trouverTerminal(terminaux, (valeurs[2]));
+                Terminal destination = trouverTerminal(terminaux, (valeurs[3]));
                 demandes.add(new Demande(
                         Integer.parseInt(valeurs[0]),
                         origine,
                         destination,
-                        Integer.parseInt(valeurs[8])
-                ));
-            }
+                        Integer.parseInt(valeurs[1])
+                )
+            );
         }
         return demandes;
     }
-
+      
     public static List<Terminal> chargerTerminaux(String fichierTerminaux) throws IOException {
         List<Terminal> terminaux = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fichierTerminaux))) {
@@ -56,7 +56,8 @@ public class DataLoaderService {
         return terminaux;
     }
 
-    private static Terminal trouverTerminal(List<Terminal> terminaux, int id) {
-        return terminaux.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+    private static Terminal trouverTerminal(List<Terminal> terminaux, String name) {
+        return terminaux.stream().filter(t -> t.getNom() == name).findFirst().orElse(null);
+
     }
 }

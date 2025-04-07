@@ -7,7 +7,8 @@ public class App {
         Simulation simulation = new Simulation();
         try {
             simulation.chargerDonnees("data/fichier_services.txt", "data/fichier_demandes.txt", new ArrayList<>());
-            simulation.executerSimulation("output/Resultat_simulation.txt");
+            // simulation.executerSimulation("output/Resultat_simulation.txt");
+
             System.out.println("Simulation terminée.");
         } catch (IOException e) {
             System.out.println(e);
