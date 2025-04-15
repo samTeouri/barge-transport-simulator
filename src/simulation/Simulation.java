@@ -8,9 +8,11 @@ import services.DataLoaderService;
 public class Simulation {
     private List<Service> services;
     private List<Demande> demandes;
+    private List<Terminal> terminaux;
 
-    public void chargerDonnees(String fichierServices, String fichierDemandes, List<Terminal> terminaux) throws IOException {
-        services = DataLoaderService.chargerServices(fichierServices);
+    public void chargerDonnees(String fichierServices, String fichierDemandes, String fichierTerminaux) throws IOException {
+        terminaux = DataLoaderService.chargerTerminaux(fichierTerminaux);
+        services = DataLoaderService.chargerServices(fichierServices, terminaux);
         demandes = DataLoaderService.chargerDemandes(fichierDemandes, terminaux);
     }
 
