@@ -23,12 +23,10 @@ public class Simulation {
             for (Demande demande : demandes) {
                 boolean affecte = false;
                 for (Service s : services) {
-                    if (s.peutTransporter(demande.getVolume())) {
-                        s.transporter(demande.getVolume());
-                        affecte = true;
-                        writer.write(demande.getId() + "\t" + s.getId() + "\t" + demande.getVolume() + "\n");
-                        break;
-                    }
+                    s.transporter(demande.getVolume());
+                    affecte = true;
+                    writer.write(demande.getId() + "\t" + s.getId() + "\t" + demande.getVolume() + "\n");
+                    break;
                 }
                 if (!affecte) {
                     writer.write(demande.getId() + "\tAUCUN\t0\n");

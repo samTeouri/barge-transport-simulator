@@ -65,7 +65,7 @@ public class DataLoaderService {
     }
 
     private static Terminal trouverTerminal(List<Terminal> terminaux, String name) {
-        return terminaux.stream().filter(t -> t.getNom() == name).findFirst().orElse(null);
+        return terminaux.stream().filter(t -> t.getNom().equals(name)).findFirst().orElse(null);
 
     }
 }
