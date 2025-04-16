@@ -1,5 +1,5 @@
 id_service  capacite  date_depart  date_arrivee  origine  destination  route
-1  30  3  8  B  D  AB4;BC6;CD8
-2  15  1  4  A  C  AB2;BD3;DC4
-3  05  2  6  A  D  AC5;CD6
-4  25  3  4  C  D  CD4
+1  500  3  8  B  D  AB4;BC6;CD8
+2  900  1  4  A  C  AB2;BD3;DC4
+3  400  2  6  A  D  AC5;CD6
+4  900  3  4  C  D  CD4

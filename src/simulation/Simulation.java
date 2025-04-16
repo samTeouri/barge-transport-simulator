@@ -18,18 +18,20 @@ public class Simulation {
 
     public void executerSimulation(String fichierSortie) throws IOException {
         try (FileWriter writer = new FileWriter(fichierSortie)) {
-            writer.write("id_demande\tid_service_utilise\tvolume_accepte\n");
+            writer.write("id_demande\tid_service_utilise\n");
             
             for (Demande demande : demandes) {
                 boolean affecte = false;
                 for (Service s : services) {
-                    s.transporter(demande.getVolume());
-                    affecte = true;
-                    writer.write(demande.getId() + "\t" + s.getId() + "\t" + demande.getVolume() + "\n");
-                    break;
+                    if (s.peutAffecterDemande(demande)) {
+                        s.transporter(demande.getVolume());
+                        writer.write(demande.getId() + "\t" + s.getId() + "\n");
+                        affecte = true;
+                        break; // Sortir de la boucle une fois la demande affectée
+                    }
                 }
                 if (!affecte) {
-                    writer.write(demande.getId() + "\tAUCUN\t0\n");
+                    writer.write(demande.getId() + "\tAUCUN\n");
                 }
             }
         }

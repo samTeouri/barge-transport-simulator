@@ -10,7 +10,7 @@ public class App {
                 "data/fichier_demandes.txt",
                 "data/fichier_terminaux.txt"
             );
-            // simulation.executerSimulation("output/Resultat_simulation.txt");
+            simulation.executerSimulation("output/Resultat_simulation.txt");
 
             System.out.println("Simulation terminée.");
         } catch (IOException e) {
