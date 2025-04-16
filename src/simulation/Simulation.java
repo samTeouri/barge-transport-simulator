@@ -8,28 +8,30 @@ import services.DataLoaderService;
 public class Simulation {
     private List<Service> services;
     private List<Demande> demandes;
+    private List<Terminal> terminaux;
 
-    public void chargerDonnees(String fichierServices, String fichierDemandes, List<Terminal> terminaux) throws IOException {
-        services = DataLoaderService.chargerServices(fichierServices);
+    public void chargerDonnees(String fichierServices, String fichierDemandes, String fichierTerminaux) throws IOException {
+        terminaux = DataLoaderService.chargerTerminaux(fichierTerminaux);
+        services = DataLoaderService.chargerServices(fichierServices, terminaux);
         demandes = DataLoaderService.chargerDemandes(fichierDemandes, terminaux);
     }
 
     public void executerSimulation(String fichierSortie) throws IOException {
         try (FileWriter writer = new FileWriter(fichierSortie)) {
-            writer.write("id_demande\tid_service_utilise\tvolume_accepte\n");
+            writer.write("id_demande\tid_service_utilise\n");
             
             for (Demande demande : demandes) {
                 boolean affecte = false;
                 for (Service s : services) {
-                    if (s.peutTransporter(demande.getVolume())) {
+                    if (s.peutAffecterDemande(demande)) {
                         s.transporter(demande.getVolume());
+                        writer.write(demande.getId() + "\t" + s.getId() + "\n");
                         affecte = true;
-                        writer.write(demande.getId() + "\t" + s.getId() + "\t" + demande.getVolume() + "\n");
-                        break;
+                        break; // Sortir de la boucle une fois la demande affectée
                     }
                 }
                 if (!affecte) {
-                    writer.write(demande.getId() + "\tAUCUN\t0\n");
+                    writer.write(demande.getId() + "\tAUCUN\n");
                 }
             }
         }
