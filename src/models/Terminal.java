@@ -3,6 +3,7 @@ package models;
 public class Terminal {
     int id;
     String nom;
+    int quantiteProduit = 0;
 
     public Terminal(int id, String nom) {
         this.id = id;
@@ -23,5 +24,13 @@ public class Terminal {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public int getQuantiteProduit() {
+        return quantiteProduit;
+    }
+
+    public void setQuantiteProduit(int quantiteProduit) {
+        this.quantiteProduit = quantiteProduit;
     }
 }
