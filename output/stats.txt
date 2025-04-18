@@ -1,0 +1,16 @@
+Statistiques de la simulation
+
+Nombre total de demandes: 9
+Demandes satisfaites: 7 (77,8%)
+Demandes non satisfaites: 2 (22,2%)
+
+Volume total demandé: 2022
+Volume transporté: 1700 (84,1%)
+Volume non transporté: 322 (15,9%)
+
+Répartition des demandes par service:
+Service #1: 4 demandes
+Service #2: 2 demandes
+Service #3: 1 demandes
+
+Capacité totale utilisée: 1700/2700 (63,0%)

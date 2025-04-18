@@ -13,7 +13,6 @@ public class DataLoaderService {
             br.readLine(); // Ignorer la première ligne
             while ((ligne = br.readLine()) != null) {
                 String[] valeurs = ligne.split("  ");
-                System.out.println("Valeurs Services : " + Arrays.toString(valeurs));
                 String[] parcoursString = valeurs[6].split(";");
                 for (String s : parcoursString) {
                     parcours.add(new Leg(
@@ -38,7 +37,6 @@ public class DataLoaderService {
             br.readLine(); // Ignorer la première ligne
             while ((ligne = br.readLine()) != null) {
                 String[] valeurs = ligne.split("  ");
-                System.out.println("Valeurs Demandes : " + Arrays.toString(valeurs));
                 Terminal origine = trouverTerminal(terminaux, valeurs[2]);
                 Terminal destination = trouverTerminal(terminaux, valeurs[3]);
                 demandes.add(new Demande(
