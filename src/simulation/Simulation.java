@@ -5,30 +5,49 @@ import java.util.*;
 import models.*;
 import services.DataLoaderService;
 
+/**
+ * Classe principale qui gère la simulation de transport de marchandises.
+ * Elle orchestre le chargement des données et l'exécution de la simulation.
+ */
 public class Simulation {
     private List<Service> services;
     private List<Demande> demandes;
     private List<Terminal> terminaux;
 
+    /**
+     * Charge les données initiales nécessaires à la simulation.
+     * @param fichierServices Chemin vers le fichier des services
+     * @param fichierDemandes Chemin vers le fichier des demandes
+     * @param fichierTerminaux Chemin vers le fichier des terminaux
+     * @throws IOException Si une erreur se produit lors du chargement
+     */
     public void chargerDonnees(String fichierServices, String fichierDemandes, String fichierTerminaux) throws IOException {
         terminaux = DataLoaderService.chargerTerminaux(fichierTerminaux);
         services = DataLoaderService.chargerServices(fichierServices, terminaux);
         demandes = DataLoaderService.chargerDemandes(fichierDemandes, terminaux);
     }
 
+    /**
+     * Exécute la simulation principale.
+     * Pour chaque demande, essaie d'affecter un service approprié et écrit les résultats.
+     * @param fichierSortie Chemin vers le fichier où écrire les résultats
+     * @throws IOException Si une erreur se produit lors de l'écriture
+     */
     public void executerSimulation(String fichierSortie) throws IOException {
         try (FileWriter writer = new FileWriter(fichierSortie)) {
             writer.write("id_demande\tid_service_utilise\n");
             
+            // Pour chaque demande, tente de l'affecter à un service disponible
             for (Demande demande : demandes) {
                 boolean affecte = false;
                 for (Service s : services) {
+                    // Affiche le calendrier détaillé de la demande
                     s.printDemandeCalendar(demande, 0);
                     if (s.peutAffecterDemande(demande)) {
                         s.transporter(demande.getVolume());
                         writer.write(demande.getId() + "\t" + s.getId() + "\n");
                         affecte = true;
-                        break; // Sortir de la boucle une fois la demande affectée
+                        break; // Une fois affectée, passe à la demande suivante
                     }
                 }
                 if (!affecte) {
@@ -41,15 +60,22 @@ public class Simulation {
         genererStatistiques(fichierSortie);
     }
 
+    /**
+     * Génère et écrit les statistiques de la simulation dans un fichier.
+     * Les statistiques incluent le nombre de demandes, les volumes transportés,
+     * la répartition par service et l'utilisation de la capacité.
+     * @param fichierSortie Chemin vers le fichier où écrire les résultats
+     * @throws IOException Si une erreur se produit lors de l'écriture
+     */
     private void genererStatistiques(String fichierSortie) throws IOException {
-        // Calculer les statistiques
+        // Calcul des statistiques
         int nbDemandes = demandes.size();
         int nbSatisfaites = 0;
         int volumeTotal = 0;
         int volumeTransporte = 0;
         int volumeNonTransporte = 0;
         
-        // Compter les demandes par service
+        // Compte le nombre de demandes par service
         Map<Integer, Integer> demandesParService = new HashMap<>();
         
         try (BufferedReader br = new BufferedReader(new FileReader(fichierSortie))) {
@@ -78,7 +104,7 @@ public class Simulation {
             }
         }
 
-        // Écrire les statistiques dans le fichier
+        // Écriture des statistiques dans le fichier
         String fichierStats = "output/stats.txt";
         try (FileWriter writer = new FileWriter(fichierStats)) {
             writer.write("Statistiques de la simulation\n\n");
