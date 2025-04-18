@@ -6,6 +6,8 @@ Une simulation de transport de marchandises par barge qui gère les demandes de 
 
 ```
 src/
+├── main/
+│   ├── App.java      # Point d'entrée de l'application
 ├── models/           # Classes de modélisation
 │   ├── Terminal.java # Représente un terminal de transport
 │   ├── Service.java  # Représente un service de transport
@@ -13,9 +15,8 @@ src/
 │   └── Leg.java      # Représente une étape du parcours
 ├── services/         # Services utilitaires
 │   └── DataLoaderService.java # Service de chargement des données
-├── simulation/       # Logique de la simulation
-│   └── Simulation.java # Classe principale de la simulation
-└── App.java          # Point d'entrée de l'application
+└── simulation/       # Logique de la simulation
+    └── Simulation.java # Classe principale de la simulation
 ```
 
 ## Fonctionnalités
@@ -31,12 +32,12 @@ src/
 
 1. Compiler le projet :
 ```bash
-javac src/**/*.java
+javac -d bin src/**/*.java
 ```
 
 2. Exécuter la simulation :
 ```bash
-java -cp src App
+java -cp bin main.App
 ```
 
 Les résultats seront stockés dans le dossier `output/` :
